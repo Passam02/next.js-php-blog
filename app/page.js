@@ -1,3 +1,4 @@
+"use client"
 import { Avatar, Grid, Box, Link, Checkbox, FormControlLabel, TextField, Button, Typography, Container } from "@mui/material";
 export default function LoginForm() {
   const handleSubmit = (event) => {
@@ -17,14 +18,14 @@ export default function LoginForm() {
           borderRadius: 2,
           px: 4,
           py: 6,
-          marginTop: 8,
+          marginTop: "20vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
         <Avatar ></Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" mt={2}>
           Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -62,13 +63,13 @@ export default function LoginForm() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
+              <Link href="#" variant="body2" sx={{textDecoration: "none"}}>
+                Forgot password ?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="#" variant="body2" sx={{textDecoration: "none"}}>
+                {"Don't have an account ? Sign Up"}
               </Link>
             </Grid>
           </Grid>
