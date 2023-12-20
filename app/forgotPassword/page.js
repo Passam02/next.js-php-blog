@@ -1,6 +1,6 @@
 "use client"
 import { Avatar, Grid, Box, Link, Checkbox, FormControlLabel, TextField, Button, Typography, Container } from "@mui/material";
-export default function LoginForm() {
+export default function forgotPassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,9 +24,8 @@ export default function LoginForm() {
           alignItems: "center",
         }}
       >
-        <Avatar ></Avatar>
-        <Typography component="h1" variant="h5" mt={2}>
-          Sign in
+        <Typography component="h1" variant="h6" mt={2}>
+          Provide Email adress on which you created an account. Instructions on how to reset your password will be sent there
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -39,40 +38,14 @@ export default function LoginForm() {
             autoComplete="email"
             autoFocus
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Reset Password
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="/forgotPassword" variant="body2" sx={{textDecoration: "none"}}>
-                Forgot password ?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="#" variant="body2" sx={{textDecoration: "none"}}>
-                {"Don't have an account ? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Box>
     </Container>
