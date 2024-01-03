@@ -1,5 +1,7 @@
-"use client"
-import { Avatar, Grid, Box, Link, Checkbox, FormControlLabel, TextField, Button, Typography, Container } from "@mui/material";
+"use client"  
+import Link from "next/link";
+import { Avatar, Grid, Box, Icon, Checkbox, FormControlLabel, TextField, Button, Typography, Container } from "@mui/material";
+import UndoIcon from '@mui/icons-material/Undo';
 export default function forgotPassword() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,14 +19,20 @@ export default function forgotPassword() {
           boxShadow: 3,
           borderRadius: 2,
           px: 4,
-          py: 6,
+          pb: 6,
+          pt: 3,
           marginTop: "20vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h6" mt={2}>
+        
+          <UndoIcon viewBox="0 0 16 16"></UndoIcon>
+        
+           
+        
+        <Typography component="h1" variant="h6" py={4}>
           Provide Email adress on which you created an account. Instructions on how to reset your password will be sent there
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
