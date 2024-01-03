@@ -1,5 +1,6 @@
 "use client"  
 import Link from "next/link";
+import { useState } from "react";
 import { Avatar, Grid, Box, Icon, Checkbox, FormControlLabel, TextField, Button, Typography, Container } from "@mui/material";
 import UndoIcon from '@mui/icons-material/Undo';
 export default function forgotPassword() {
@@ -11,6 +12,7 @@ export default function forgotPassword() {
       password: data.get("password"),
     });
   };
+  const [sent, togglesent] = useState(false)
 
   return (
     <Container component="main" maxWidth="sm">
@@ -27,15 +29,27 @@ export default function forgotPassword() {
           alignItems: "center",
         }}
       >
+        {sent ?
+        <UndoIcon viewBox="0 0 16 16" onClick={() => togglesent(!sent)} sx={{alignSelf:"flex-start", cursor: 'pointer'}}></UndoIcon> 
+        :
         <Link href="/" style={{alignSelf: "flex-start"}}>
-          <UndoIcon viewBox="0 0 16 16"></UndoIcon>
+        <UndoIcon viewBox="0 0 16 16"></UndoIcon>
         </Link>
+        }
            
-        
+        {sent ? 
+        <Typography component="h1" variant="h6" py={4}>
+          Instruction on how to reset your password has been sent to your email.
+        </Typography>
+        :
         <Typography component="h1" variant="h6" py={4}>
           Provide Email adress on which you created an account. Instructions on how to reset your password will be sent there
         </Typography>
+        }
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          {sent ?
+          ''
+          :
           <TextField
             margin="normal"
             required
@@ -46,14 +60,27 @@ export default function forgotPassword() {
             autoComplete="email"
             autoFocus
           />
-          <Button
+          }
+          {sent ?
+            <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-          >
-            Reset Password
-          </Button>
+            >
+              Send again
+            </Button>
+            :
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={() => togglesent(!sent)}
+            >
+              Reset Password
+            </Button>
+          }
         </Box>
       </Box>
     </Container>
