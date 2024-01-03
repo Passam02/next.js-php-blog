@@ -27,9 +27,9 @@ export default function forgotPassword() {
           alignItems: "center",
         }}
       >
-        
+        <Link href="/" style={{alignSelf: "flex-start"}}>
           <UndoIcon viewBox="0 0 16 16"></UndoIcon>
-        
+        </Link>
            
         
         <Typography component="h1" variant="h6" py={4}>
